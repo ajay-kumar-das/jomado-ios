@@ -1,0 +1,36 @@
+name: Jomado
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "26.0"
+packages:
+  JomadoCore:
+    path: JomadoCore
+targets:
+  Jomado:
+    type: application
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: JomadoApp
+    resources:
+      - path: Resources
+    info:
+      path: Config/Info.plist
+    entitlements:
+      path: Config/Jomado.entitlements
+    dependencies:
+      - package: JomadoCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.Jomado
+        SWIFT_VERSION: 6.0
+        CODE_SIGN_STYLE: Automatic
+        TARGETED_DEVICE_FAMILY: "1"
+schemes:
+  Jomado:
+    build:
+      targets:
+        Jomado: all
+    run:
+      config: Debug

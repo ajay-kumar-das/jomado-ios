@@ -1,0 +1,5866 @@
+[
+  {
+    "id": "HYD-CUTEPOSITIVE-NORMAL-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "Tiny sip, sunshine ☀️",
+      "body": "Momo saved you a tiny water break."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-NORMAL-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "A little water hug? 💧",
+      "body": "One small sip and you are back on track."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-NORMAL-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "Your bottle says hi",
+      "body": "It has been waiting very politely."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-NORMAL-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "Mini hydration moment",
+      "body": "Nothing dramatic. Just a few happy sips."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-LIGHTOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "Still here, sunshine",
+      "body": "Your tiny water break is waiting."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-LIGHTOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "Momo is getting curious 👀",
+      "body": "Was the bottle hiding from you?"
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-LIGHTOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "A small nudge 💛",
+      "body": "A few sips will close this little loop."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-LIGHTOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "Tiny mission still open",
+      "body": "You can finish it in under a minute."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-MEDIUMOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "Momo brought the bottle 🧡",
+      "body": "Let us finish this before it turns into a saga."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-MEDIUMOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "Hydration mission: still open",
+      "body": "One action. Then you are done."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-MEDIUMOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "Your cells sent a postcard",
+      "body": "It simply says: water, please."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-MEDIUMOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "A little late, still easy",
+      "body": "Take the sip. Claim the win."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-REDZONE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "Okay, sunshine — water now ❤️",
+      "body": "You have delayed it long enough. Let us close it."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-REDZONE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "Momo has stopped being subtle",
+      "body": "Please take a real water break now."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-REDZONE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "Red zone, tiny human",
+      "body": "No guilt. Just act now."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-CUTEPOSITIVE-REDZONE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "cutePositive",
+    "message": {
+      "title": "This one has been waiting a while",
+      "body": "Drink, complete, reset."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 1,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "cutePositive",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-NORMAL-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "humor",
+    "message": {
+      "title": "Your bottle feels unemployed",
+      "body": "Please give it a job."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-NORMAL-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "humor",
+    "message": {
+      "title": "Hydration has entered the chat",
+      "body": "You may now reply with a sip."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-NORMAL-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "humor",
+    "message": {
+      "title": "Plot twist: water helps",
+      "body": "Wild concept. Worth testing."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-NORMAL-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "humor",
+    "message": {
+      "title": "That bottle is not decor",
+      "body": "Pip checked. It is definitely functional."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-LIGHTOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "humor",
+    "message": {
+      "title": "You ghosted your bottle",
+      "body": "It noticed."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-LIGHTOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "humor",
+    "message": {
+      "title": "Hydration left you on read",
+      "body": "Reply before this gets awkward."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-LIGHTOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "humor",
+    "message": {
+      "title": "Pip filed a tiny complaint",
+      "body": "Reason: suspicious lack of sipping."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-LIGHTOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "humor",
+    "message": {
+      "title": "Water break: sequel edition",
+      "body": "The first reminder did not get a response."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-MEDIUMOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "humor",
+    "message": {
+      "title": "This is becoming a documentary",
+      "body": "Episode title: The Missing Sip."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-MEDIUMOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "humor",
+    "message": {
+      "title": "Pip has receipts",
+      "body": "You definitely saw the reminder."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-MEDIUMOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "humor",
+    "message": {
+      "title": "Your bottle is considering HR",
+      "body": "Working conditions remain unacceptable."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-MEDIUMOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "humor",
+    "message": {
+      "title": "Hydration court is now in session",
+      "body": "The evidence strongly suggests: take a sip."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-REDZONE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "humor",
+    "message": {
+      "title": "Okay, comedy hour is over",
+      "body": "Please drink some water now."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-REDZONE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "humor",
+    "message": {
+      "title": "Pip has run out of jokes",
+      "body": "That is how overdue this is."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-REDZONE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "humor",
+    "message": {
+      "title": "Breaking news: still thirsty",
+      "body": "Resolve the story in one sip."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-HUMOR-REDZONE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "humor",
+    "message": {
+      "title": "The bottle won the argument",
+      "body": "Your move: drink."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 3,
+      "humor": 5,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "humor",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-NORMAL-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "challenge",
+    "message": {
+      "title": "60-second hydration challenge",
+      "body": "Can you finish before the ring changes?"
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-NORMAL-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "challenge",
+    "message": {
+      "title": "Beat your last response",
+      "body": "Start now and steal a few seconds back."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-NORMAL-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "challenge",
+    "message": {
+      "title": "Quick round: water",
+      "body": "One action. No overthinking."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-NORMAL-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "challenge",
+    "message": {
+      "title": "Ready, set, sip",
+      "body": "Let us make this one fast."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-LIGHTOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "challenge",
+    "message": {
+      "title": "Recovery challenge unlocked",
+      "body": "Bring this back under control now."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-LIGHTOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "challenge",
+    "message": {
+      "title": "Can you stop the delay here?",
+      "body": "Complete it before orange."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-LIGHTOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "challenge",
+    "message": {
+      "title": "Time to catch up",
+      "body": "A fast finish still counts."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-LIGHTOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "challenge",
+    "message": {
+      "title": "Delay detected. Challenge accepted?",
+      "body": "Tap in and get it done."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-MEDIUMOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "challenge",
+    "message": {
+      "title": "Orange-zone comeback",
+      "body": "Finish now and rescue the score."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-MEDIUMOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "challenge",
+    "message": {
+      "title": "Can you beat the red zone?",
+      "body": "You still have time."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-MEDIUMOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "challenge",
+    "message": {
+      "title": "Sparky wants a comeback",
+      "body": "One sip starts it."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-MEDIUMOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "challenge",
+    "message": {
+      "title": "Final stretch before red",
+      "body": "Complete the mission now."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-REDZONE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "challenge",
+    "message": {
+      "title": "Red-zone recovery",
+      "body": "Do not optimize. Just execute."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-REDZONE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "challenge",
+    "message": {
+      "title": "Challenge changed: finish it now",
+      "body": "The timer already made its point."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-REDZONE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "challenge",
+    "message": {
+      "title": "No more speed record today",
+      "body": "But you can still complete the task."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-CHALLENGE-REDZONE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "challenge",
+    "message": {
+      "title": "Reset the board",
+      "body": "Drink water and start fresh."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 1,
+      "pressure": 3,
+      "warmth": 3,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "challenge",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-NORMAL-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "microStory",
+    "message": {
+      "title": "Chapter 1: The Forgotten Flask",
+      "body": "A small hero notices a bottle nearby…"
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-NORMAL-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "microStory",
+    "message": {
+      "title": "A tiny quest begins",
+      "body": "The path is short. The treasure is water."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-NORMAL-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "microStory",
+    "message": {
+      "title": "Once upon a dry afternoon",
+      "body": "A glass of water appeared at exactly the right time."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-NORMAL-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "microStory",
+    "message": {
+      "title": "The Water Gate opens",
+      "body": "Only one sip is required to pass."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-LIGHTOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "microStory",
+    "message": {
+      "title": "Chapter 2: The Hero Got Distracted",
+      "body": "The flask is still patiently waiting."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-LIGHTOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "microStory",
+    "message": {
+      "title": "The quest marker is still glowing",
+      "body": "The story continues when you take a sip."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-LIGHTOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "microStory",
+    "message": {
+      "title": "A detour appeared",
+      "body": "But the Water Gate is still open."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-LIGHTOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "microStory",
+    "message": {
+      "title": "The bottle waited by the road",
+      "body": "It knew you would come back."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-MEDIUMOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "microStory",
+    "message": {
+      "title": "Chapter 3: The Orange Sky",
+      "body": "The hero realizes the side quest became urgent."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-MEDIUMOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "microStory",
+    "message": {
+      "title": "The Water Gate is closing",
+      "body": "A quick action keeps the story moving."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-MEDIUMOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "microStory",
+    "message": {
+      "title": "The flask calls from afar",
+      "body": "This chapter needs an ending."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-MEDIUMOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "microStory",
+    "message": {
+      "title": "The hero checks the clock",
+      "body": "Time to return to the main quest."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-REDZONE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "microStory",
+    "message": {
+      "title": "Final chapter: Drink the Water",
+      "body": "The plot no longer needs a twist."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-REDZONE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "microStory",
+    "message": {
+      "title": "The quest has one remaining step",
+      "body": "Take the sip and close the book."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-REDZONE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "microStory",
+    "message": {
+      "title": "The Water Gate turns red",
+      "body": "The hero acts."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-MICROSTORY-REDZONE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "microStory",
+    "message": {
+      "title": "End the cliffhanger",
+      "body": "Drink. Complete. Continue."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 2,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 4
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "microStory",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-NORMAL-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Hydration quest available",
+      "body": "Reward: +10 HP."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-NORMAL-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Daily buff ready",
+      "body": "Drink water to activate."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-NORMAL-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Potion slot is full",
+      "body": "Use one now."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-NORMAL-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Side quest: restore hydration",
+      "body": "Difficulty: very easy."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-LIGHTOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Quest timer is ticking",
+      "body": "Complete now for a clean finish."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-LIGHTOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Hydration buff delayed",
+      "body": "Activate before the penalty zone."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-LIGHTOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Your HP bar looks suspicious",
+      "body": "A water potion might help."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-LIGHTOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Quest reminder respawned",
+      "body": "It still drops the same reward."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-MEDIUMOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Orange debuff active",
+      "body": "Clear it with one hydration action."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-MEDIUMOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Quest difficulty increased",
+      "body": "Mostly because you waited."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-MEDIUMOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Low hydration warning",
+      "body": "Use the potion before red zone."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-MEDIUMOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Boss mechanic: procrastination",
+      "body": "Counter it with water."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-REDZONE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Critical hydration quest",
+      "body": "Use potion now."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-REDZONE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Red debuff active",
+      "body": "Complete the task to clear it."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-REDZONE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "No more side quests",
+      "body": "Main objective: drink water."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-GAMERPG-REDZONE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "gameRPG",
+    "message": {
+      "title": "Respawn point reached",
+      "body": "Reset with a sip."
+    },
+    "mascot": {
+      "id": "sparky",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 5,
+      "humor": 2,
+      "pressure": 2,
+      "warmth": 3,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "gameRPG",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-NORMAL-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "supportive",
+    "message": {
+      "title": "One small thing for you",
+      "body": "Take a calm water break."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-NORMAL-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "supportive",
+    "message": {
+      "title": "A gentle reset",
+      "body": "A few sips is enough."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-NORMAL-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "supportive",
+    "message": {
+      "title": "Take care of future you",
+      "body": "Start with water."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-NORMAL-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "supportive",
+    "message": {
+      "title": "Small steps count",
+      "body": "This one takes less than a minute."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-LIGHTOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "supportive",
+    "message": {
+      "title": "No pressure — just return to it",
+      "body": "The reminder is still here when you are ready."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-LIGHTOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "supportive",
+    "message": {
+      "title": "You got busy. That is okay.",
+      "body": "Take a few sips now."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-LIGHTOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "supportive",
+    "message": {
+      "title": "Come back to this small promise",
+      "body": "Water, then continue your day."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-LIGHTOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "supportive",
+    "message": {
+      "title": "A gentle nudge",
+      "body": "Finish this one and move on."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-MEDIUMOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "supportive",
+    "message": {
+      "title": "Let us take care of this now",
+      "body": "No guilt attached."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-MEDIUMOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "supportive",
+    "message": {
+      "title": "You have delayed it, not failed it",
+      "body": "A sip still counts."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-MEDIUMOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "supportive",
+    "message": {
+      "title": "Pause for one minute",
+      "body": "Do something useful for your body."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-MEDIUMOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "supportive",
+    "message": {
+      "title": "You can recover the routine",
+      "body": "Start with this reminder."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-REDZONE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "supportive",
+    "message": {
+      "title": "No judgment. Action now.",
+      "body": "Drink some water and reset."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-REDZONE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "supportive",
+    "message": {
+      "title": "The delay does not matter anymore",
+      "body": "Completing it does."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-REDZONE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "supportive",
+    "message": {
+      "title": "Take the next useful step",
+      "body": "Water first."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-SUPPORTIVE-REDZONE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "supportive",
+    "message": {
+      "title": "Reset without guilt",
+      "body": "Finish this reminder and continue."
+    },
+    "mascot": {
+      "id": "momo",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 1,
+      "humor": 0,
+      "pressure": 1,
+      "warmth": 5,
+      "playfulness": 2
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "supportive",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-NORMAL-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "The Hydration Council has spoken",
+      "body": "A sip is officially requested."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-NORMAL-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "Emergency meeting called",
+      "body": "Agenda item #1: water."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-NORMAL-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "A dramatic event approaches",
+      "body": "Fortunately, it is just a water break."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-NORMAL-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "Attention, main character",
+      "body": "Your hydration scene is ready."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-LIGHTOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "The council reconvened",
+      "body": "Apparently the first memo was ignored."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-LIGHTOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "Dramatic music intensifies",
+      "body": "The bottle remains untouched."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-LIGHTOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "Act II has begun",
+      "body": "The protagonist still needs water."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-LIGHTOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "The committee is concerned",
+      "body": "Mostly because you are still scrolling."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-MEDIUMOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "Orange alert from the council",
+      "body": "This bit is getting too real."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-MEDIUMOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "The soundtrack just got serious",
+      "body": "Please resolve the hydration subplot."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-MEDIUMOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "Act III: Consequences",
+      "body": "One sip can still fix the pacing."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-MEDIUMOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "The narrator is losing patience",
+      "body": "Complete the water scene."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-REDZONE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "Red alert. Curtain call.",
+      "body": "Drink the water."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-REDZONE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "The council has adjourned",
+      "body": "Final instruction: hydrate now."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-REDZONE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "No more dramatic metaphors",
+      "body": "Water. Please."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-PLAYFULDRAMATIC-REDZONE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "playfulDramatic",
+    "message": {
+      "title": "The finale is simple",
+      "body": "Drink, tap done, continue."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 4,
+      "humor": 4,
+      "pressure": 3,
+      "warmth": 2,
+      "playfulness": 5
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "playfulDramatic",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-NORMAL-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "minimal",
+    "message": {
+      "title": "Water time",
+      "body": "Take a few sips."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-NORMAL-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "minimal",
+    "message": {
+      "title": "Hydrate",
+      "body": "One minute."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-NORMAL-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "minimal",
+    "message": {
+      "title": "Drink water",
+      "body": "Then continue."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-NORMAL-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "normal",
+    "strategy": "minimal",
+    "message": {
+      "title": "Water break",
+      "body": "Do it now."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "hello",
+      "animation": "gentleBounce"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "normal"
+      ],
+      "minDelayMinutes": 0,
+      "maxDelayMinutes": 2
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "normal"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-LIGHTOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "minimal",
+    "message": {
+      "title": "Water — 3+ min late",
+      "body": "Complete now."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-LIGHTOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "minimal",
+    "message": {
+      "title": "Still pending",
+      "body": "Drink water."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-LIGHTOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "minimal",
+    "message": {
+      "title": "Hydration overdue",
+      "body": "Take action."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-LIGHTOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "lightOverdue",
+    "strategy": "minimal",
+    "message": {
+      "title": "Reminder remains open",
+      "body": "Finish it."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "waiting",
+      "animation": "lookAround"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "lightOverdue"
+      ],
+      "minDelayMinutes": 3,
+      "maxDelayMinutes": 7
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "lightOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-MEDIUMOVERDUE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "minimal",
+    "message": {
+      "title": "Water — 8+ min late",
+      "body": "Complete now."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-MEDIUMOVERDUE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "minimal",
+    "message": {
+      "title": "Still overdue",
+      "body": "Drink water now."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-MEDIUMOVERDUE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "minimal",
+    "message": {
+      "title": "Hydration pending",
+      "body": "Do not postpone again."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-MEDIUMOVERDUE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "mediumOverdue",
+    "strategy": "minimal",
+    "message": {
+      "title": "Action required",
+      "body": "Water."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "concerned",
+      "animation": "tapFoot"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "mediumOverdue"
+      ],
+      "minDelayMinutes": 8,
+      "maxDelayMinutes": 14
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "mediumOverdue"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-REDZONE-01",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "minimal",
+    "message": {
+      "title": "Water — 15+ min late",
+      "body": "Complete now."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-REDZONE-02",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "minimal",
+    "message": {
+      "title": "Red zone",
+      "body": "Drink water."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-REDZONE-03",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "minimal",
+    "message": {
+      "title": "Long overdue",
+      "body": "Finish the task."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "redZone"
+    ]
+  },
+  {
+    "id": "HYD-MINIMAL-REDZONE-04",
+    "version": 1,
+    "locale": "en",
+    "taskType": "hydration",
+    "stage": "redZone",
+    "strategy": "minimal",
+    "message": {
+      "title": "Hydration still pending",
+      "body": "Act now."
+    },
+    "mascot": {
+      "id": "pip",
+      "expression": "urgent",
+      "animation": "pulse"
+    },
+    "attributes": {
+      "energy": 2,
+      "humor": 0,
+      "pressure": 2,
+      "warmth": 2,
+      "playfulness": 1
+    },
+    "context": {
+      "dayParts": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "urgencies": [
+        "redZone"
+      ],
+      "minDelayMinutes": 15,
+      "maxDelayMinutes": null
+    },
+    "selection": {
+      "baseWeight": 1.0,
+      "cooldownDays": 14
+    },
+    "tags": [
+      "hydration",
+      "minimal",
+      "redZone"
+    ]
+  }
+]
