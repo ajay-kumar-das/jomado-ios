@@ -1,6 +1,9 @@
 import Foundation
 
-enum SharedAlarmEventKind: String, Codable { case acknowledged, open }
+enum SharedAlarmEventKind: String, Codable {
+    case acknowledged
+    case open
+}
 
 struct SharedAlarmEvent: Codable, Identifiable {
     let id: UUID
@@ -10,25 +13,66 @@ struct SharedAlarmEvent: Codable, Identifiable {
 }
 
 enum SharedAlarmEventQueue {
-    static let suiteName = "group.com.example.jomado"
-    private static let key = "jomado.alarm.events"
 
-    static func append(alarmID: UUID, kind: SharedAlarmEventKind, timestamp: Date = Date()) {
-        guard let defaults = UserDefaults(suiteName: suiteName) else { return }
-        var events = read(defaults: defaults)
-        events.append(.init(id: UUID(), alarmID: alarmID, kind: kind, timestamp: timestamp))
-        if let data = try? JSONEncoder().encode(events.suffix(50)) { defaults.set(data, forKey: key) }
+    private static let key = "jomado.alarm.events"
+    private static let maxEvents = 50
+
+    private static var defaults: UserDefaults {
+        UserDefaults.standard
+    }
+
+    static func append(
+        alarmID: UUID,
+        kind: SharedAlarmEventKind,
+        timestamp: Date = Date()
+    ) {
+        var events = read()
+
+        events.append(
+            SharedAlarmEvent(
+                id: UUID(),
+                alarmID: alarmID,
+                kind: kind,
+                timestamp: timestamp
+            )
+        )
+
+        // Prevent this lightweight queue from growing forever.
+        let trimmedEvents = Array(events.suffix(maxEvents))
+
+        guard let data = try? JSONEncoder().encode(trimmedEvents) else {
+            return
+        }
+
+        defaults.set(data, forKey: key)
     }
 
     static func drain() -> [SharedAlarmEvent] {
-        guard let defaults = UserDefaults(suiteName: suiteName) else { return [] }
-        let events = read(defaults: defaults)
+        let events = read()
+
         defaults.removeObject(forKey: key)
+
         return events
     }
 
-    private static func read(defaults: UserDefaults) -> [SharedAlarmEvent] {
-        guard let data = defaults.data(forKey: key) else { return [] }
-        return (try? JSONDecoder().decode([SharedAlarmEvent].self, from: data)) ?? []
+    static func peek() -> [SharedAlarmEvent] {
+        read()
+    }
+
+    static func clear() {
+        defaults.removeObject(forKey: key)
+    }
+
+    private static func read() -> [SharedAlarmEvent] {
+        guard let data = defaults.data(forKey: key) else {
+            return []
+        }
+
+        return (
+            try? JSONDecoder().decode(
+                [SharedAlarmEvent].self,
+                from: data
+            )
+        ) ?? []
     }
 }
