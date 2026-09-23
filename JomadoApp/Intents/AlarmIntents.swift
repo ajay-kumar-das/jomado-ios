@@ -2,33 +2,65 @@ import AppIntents
 import Foundation
 
 struct AcknowledgeHydrationAlarmIntent: LiveActivityIntent {
-    static var title: LocalizedStringResource = "Acknowledge hydration alarm"
-    static var description = IntentDescription("Records that the alarm was stopped without marking the hydration task complete.")
-    static var openAppWhenRun = false
+    static let title: LocalizedStringResource = "Acknowledge hydration alarm"
 
-    @Parameter(title: "Alarm ID") var alarmID: String
+    static let description = IntentDescription(
+        "Records that the alarm was stopped without marking the hydration task complete."
+    )
 
-    init(alarmID: String) { self.alarmID = alarmID }
-    init() { self.alarmID = "" }
+    static let openAppWhenRun = false
+
+    @Parameter(title: "Alarm ID")
+    var alarmID: String
+
+    init(alarmID: String) {
+        self.alarmID = alarmID
+    }
+
+    init() {
+        self.alarmID = ""
+    }
 
     func perform() async throws -> some IntentResult {
-        if let id = UUID(uuidString: alarmID) { SharedAlarmEventQueue.append(alarmID: id, kind: .acknowledged) }
+        if let id = UUID(uuidString: alarmID) {
+            SharedAlarmEventQueue.append(
+                alarmID: id,
+                kind: .acknowledged
+            )
+        }
+
         return .result()
     }
 }
 
 struct OpenHydrationIntent: LiveActivityIntent {
-    static var title: LocalizedStringResource = "Open Jomado"
-    static var description = IntentDescription("Opens Jomado to complete the hydration action.")
-    static var openAppWhenRun = true
+    static let title: LocalizedStringResource = "Open Jomado"
 
-    @Parameter(title: "Alarm ID") var alarmID: String
+    static let description = IntentDescription(
+        "Opens Jomado to complete the hydration action."
+    )
 
-    init(alarmID: String) { self.alarmID = alarmID }
-    init() { self.alarmID = "" }
+    static let openAppWhenRun = true
+
+    @Parameter(title: "Alarm ID")
+    var alarmID: String
+
+    init(alarmID: String) {
+        self.alarmID = alarmID
+    }
+
+    init() {
+        self.alarmID = ""
+    }
 
     func perform() async throws -> some IntentResult {
-        if let id = UUID(uuidString: alarmID) { SharedAlarmEventQueue.append(alarmID: id, kind: .open) }
+        if let id = UUID(uuidString: alarmID) {
+            SharedAlarmEventQueue.append(
+                alarmID: id,
+                kind: .open
+            )
+        }
+
         return .result()
     }
 }
