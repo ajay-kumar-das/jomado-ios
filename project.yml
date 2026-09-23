@@ -1,6 +1,6 @@
 name: Jomado
 options:
-  bundleIdPrefix: com.example
+  bundleIdPrefix: com.ajay
   deploymentTarget:
     iOS: "26.0"
 packages:
@@ -23,7 +23,7 @@ targets:
       - package: JomadoCore
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.example.Jomado
+        PRODUCT_BUNDLE_IDENTIFIER: com.ajaydas.jomado
         SWIFT_VERSION: 6.0
         CODE_SIGN_STYLE: Automatic
         TARGETED_DEVICE_FAMILY: "1"
