@@ -1,0 +1,55 @@
+name: Build Jomado IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-26
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Build Jomado
+        run: |
+          xcodebuild \
+            -project Jomado.xcodeproj \
+            -scheme Jomado \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            DEVELOPMENT_TEAM="" \
+            clean build
+
+      - name: Create unsigned IPA
+        run: |
+          mkdir -p Payload
+
+          cp -R \
+            build/Build/Products/Release-iphoneos/Jomado.app \
+            Payload/
+
+          zip -r Jomado-unsigned.ipa Payload
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: Jomado-iOS
+          path: Jomado-unsigned.ipa
