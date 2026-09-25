@@ -13,7 +13,6 @@ targets:
     deploymentTarget: "26.0"
     sources:
       - path: JomadoApp
-    resources:
       - path: Resources
     info:
       path: Config/Info.plist
