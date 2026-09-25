@@ -28,7 +28,7 @@ struct ContentPreferencesView: View {
 
                 Section {
                     Text(
-                        "Jomado keeps a small exploration rate so it can occasionally test different styles instead of trapping you in one pattern."
+                        "Keep at least one style and companion enabled. Jomado occasionally explores among your enabled choices so it can learn locally without uploading behavior data."
                     )
                     .font(.footnote)
                     .foregroundStyle(.secondary)
@@ -53,7 +53,7 @@ struct ContentPreferencesView: View {
             set: { isEnabled in
                 if isEnabled {
                     disabledStrategies.remove(strategy)
-                } else {
+                } else if disabledStrategies.count < Strategy.allCases.count - 1 {
                     disabledStrategies.insert(strategy)
                 }
             }
@@ -68,7 +68,7 @@ struct ContentPreferencesView: View {
             set: { isEnabled in
                 if isEnabled {
                     disabledMascots.remove(mascot)
-                } else {
+                } else if disabledMascots.count < MascotID.allCases.count - 1 {
                     disabledMascots.insert(mascot)
                 }
             }

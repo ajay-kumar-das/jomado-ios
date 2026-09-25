@@ -18,8 +18,12 @@ struct RootView: View {
                 }
             } else { OnboardingView(runtime: runtime) }
         }
-        .task { runtime.attach(modelContext: modelContext) }
-        .onChange(of: scenePhase) { _, phase in if phase == .active { runtime.consumeSharedEvents() } }
+        .task { await runtime.attach(modelContext: modelContext) }
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .active {
+                Task { await runtime.refreshSystemState() }
+            }
+        }
         .fullScreenCover(item: $runtime.activeReminder) { _ in ReminderExperienceView(runtime: runtime) }
         .alert("Jomado", isPresented: Binding(get: { runtime.lastError != nil }, set: { if !$0 { runtime.lastError = nil } })) { Button("OK", role: .cancel) {} } message: { Text(runtime.lastError ?? "") }
     }

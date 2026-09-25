@@ -16,6 +16,13 @@ struct ReminderExperienceView: View {
                         HStack {
                             Label(stageLabel(reminder.urgency), systemImage: "drop.fill").font(.subheadline.bold())
                             Spacer()
+                            if reminder.isSimulation {
+                                Text("SIMULATION")
+                                    .font(.caption2.bold())
+                                    .padding(.horizontal, 7)
+                                    .padding(.vertical, 3)
+                                    .background(.purple.opacity(0.14), in: Capsule())
+                            }
                             Text(delayText(reminder)).font(.subheadline.monospacedDigit()).foregroundStyle(.secondary)
                         }
                         MascotView(mascot: reminder.content.mascot.id, expression: reminder.content.mascot.expression)
@@ -28,14 +35,15 @@ struct ReminderExperienceView: View {
 
                         VStack(spacing: 12) {
                             Button {
-                                runtime.startAction()
                                 runtime.complete()
                             } label: {
                                 Label("I drank water", systemImage: "checkmark.circle.fill").frame(maxWidth: .infinity).padding(.vertical, 8)
                             }.buttonStyle(.borderedProminent).controlSize(.large)
 
-                            Button("Silence / acknowledge") { runtime.acknowledge() }
-                                .buttonStyle(.bordered)
+                            Label("Alarm silence only acknowledges the alert — this task stays open.", systemImage: "speaker.slash.fill")
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
 
                             Button("Skip this one", role: .destructive) { showSkip = true }.font(.footnote)
                         }

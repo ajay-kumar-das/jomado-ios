@@ -1,21 +1,23 @@
 import Foundation
 
-enum SharedAlarmEventKind: String, Codable {
+enum SharedAlarmEventKind: String, Codable, Equatable, Sendable {
     case acknowledged
     case open
 }
 
-struct SharedAlarmEvent: Codable, Identifiable {
+struct SharedAlarmEvent: Codable, Identifiable, Sendable {
     let id: UUID
     let alarmID: UUID
     let kind: SharedAlarmEventKind
     let timestamp: Date
+    let timeZoneIdentifier: String?
 }
 
 enum SharedAlarmEventQueue {
 
     private static let key = "jomado.alarm.events"
-    private static let maxEvents = 50
+    private static let maxEvents = 100
+    private static let duplicateWindow: TimeInterval = 5 * 60
 
     private static var defaults: UserDefaults {
         UserDefaults.standard
@@ -28,12 +30,20 @@ enum SharedAlarmEventQueue {
     ) {
         var events = read()
 
+        // App intents can be retried by the system. Coalesce an immediate retry while
+        // still allowing the same recurring alarm to produce a new event next time.
+        if let latest = events.last(where: { $0.alarmID == alarmID && $0.kind == kind }),
+           abs(timestamp.timeIntervalSince(latest.timestamp)) < duplicateWindow {
+            return
+        }
+
         events.append(
             SharedAlarmEvent(
                 id: UUID(),
                 alarmID: alarmID,
                 kind: kind,
-                timestamp: timestamp
+                timestamp: timestamp,
+                timeZoneIdentifier: TimeZone.autoupdatingCurrent.identifier
             )
         )
 

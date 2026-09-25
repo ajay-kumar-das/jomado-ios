@@ -7,6 +7,7 @@ public enum ReminderEvent: Sendable {
     case startAction(Date)
     case complete(Date)
     case skip(Date)
+    case expire(Date)
 }
 
 public enum ReminderTransitionError: Error, Equatable { case invalid(ReminderState, String) }
@@ -27,6 +28,8 @@ public enum ReminderStateMachine {
             next.state = .completed; next.completedAt = date
         case (.alarming, .skip(let date)), (.acknowledged, .skip(let date)), (.overdue, .skip(let date)):
             next.state = .skipped; next.skippedAt = date
+        case (.scheduled, .expire(let date)), (.alarming, .expire(let date)), (.acknowledged, .expire(let date)), (.overdue, .expire(let date)), (.actionStarted, .expire(let date)):
+            next.state = .expired; next.expiredAt = date
         default:
             throw ReminderTransitionError.invalid(snapshot.state, String(describing: event))
         }

@@ -1,7 +1,7 @@
 import Foundation
 
 public enum TaskType: String, Codable, CaseIterable, Sendable { case hydration }
-public enum ReminderState: String, Codable, CaseIterable, Sendable { case scheduled, alarming, acknowledged, overdue, actionStarted, completed, skipped }
+public enum ReminderState: String, Codable, CaseIterable, Sendable { case scheduled, alarming, acknowledged, overdue, actionStarted, completed, skipped, expired }
 public enum UrgencyStage: String, Codable, CaseIterable, Sendable { case normal, lightOverdue, mediumOverdue, redZone }
 public enum Strategy: String, Codable, CaseIterable, Sendable { case cutePositive, humor, challenge, microStory, gameRPG, supportive, playfulDramatic, minimal }
 public enum MascotID: String, Codable, CaseIterable, Sendable { case momo, sparky, pip }
@@ -116,6 +116,7 @@ public struct ReminderSnapshot: Codable, Hashable, Sendable {
     public var actionStartedAt: Date?
     public var completedAt: Date?
     public var skippedAt: Date?
+    public var expiredAt: Date?
     public init(state: ReminderState = .scheduled, scheduledAt: Date) {
         self.state = state; self.scheduledAt = scheduledAt
     }

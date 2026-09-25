@@ -3,15 +3,18 @@ import JomadoCore
 
 struct InsightsView: View {
     @ObservedObject var runtime: JomadoRuntime
-    @State private var refresh = UUID()
     var body: some View {
         NavigationStack {
             ScrollView {
                 let s = runtime.summary()
                 VStack(spacing: 16) {
                     metric("Completion", percent(s.completionRate), "checkmark.seal.fill")
+                    HStack { metric("Completed", "\(s.completed)", "checkmark.circle.fill"); metric("Missed", "\(s.expired)", "clock.badge.xmark.fill") }
                     HStack { metric("≤ 2 min", percent(s.within2Minutes), "bolt.fill"); metric("≤ 5 min", percent(s.within5Minutes), "timer") }
                     HStack { metric("≤ 15 min", percent(s.within15Minutes), "clock"); metric("Median", latency(s.medianLatency), "chart.line.uptrend.xyaxis") }
+                    Text("Timing percentages use all presented reminders as the denominator. Developer simulations are excluded.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Strategies").font(.headline)
                         ForEach(runtime.strategyStats(), id: \.0.rawValue) { strategy, p in

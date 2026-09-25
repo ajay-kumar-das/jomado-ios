@@ -17,6 +17,28 @@ jobs:
       - name: Show Xcode version
         run: xcodebuild -version
 
+      - name: Test core package
+        run: swift test --package-path JomadoCore
+
+      - name: Validate content and privacy resources
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("Resources/Content/hydration.json")
+          items = json.loads(path.read_text(encoding="utf-8"))
+          assert items, "hydration.json is empty"
+          ids = [item["id"] for item in items]
+          assert len(ids) == len(set(ids)), "hydration.json has duplicate IDs"
+          for item in items:
+              assert item["message"]["title"].strip(), f"blank title: {item['id']}"
+              assert item["message"]["body"].strip(), f"blank body: {item['id']}"
+              assert item["stage"] in item["context"]["urgencies"], f"stage mismatch: {item['id']}"
+          print(f"Validated {len(items)} hydration messages")
+          PY
+          plutil -lint Config/Info.plist Resources/PrivacyInfo.xcprivacy
+
       - name: Install XcodeGen
         run: brew install xcodegen
 
@@ -37,6 +59,13 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             DEVELOPMENT_TEAM="" \
             clean build
+
+      - name: Verify built app resources
+        run: |
+          APP_PATH="build/Build/Products/Release-iphoneos/Jomado.app"
+          test -d "$APP_PATH"
+          test -n "$(find "$APP_PATH" -name hydration.json -print -quit)"
+          test -f "$APP_PATH/PrivacyInfo.xcprivacy"
 
       - name: Create unsigned IPA
         run: |
