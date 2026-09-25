@@ -103,7 +103,7 @@ public struct HydrationRoutineConfiguration: Codable, Hashable, Sendable {
     ) -> Date? {
         guard generatedMinutes.contains(minuteOfDay) else { return nil }
 
-        var calendar = sourceCalendar
+        let calendar = sourceCalendar
         let startOfDay = calendar.startOfDay(for: day)
         let searchStart = calendar.date(byAdding: .second, value: -1, to: startOfDay) ?? startOfDay
         let components = DateComponents(

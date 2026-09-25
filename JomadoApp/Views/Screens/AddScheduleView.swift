@@ -57,6 +57,27 @@ struct AddScheduleView: View {
                         }
                     }
                     .frame(maxWidth: .infinity)
+
+                    HStack {
+                        Button("Every day") { weekdays = Set(1...7) }
+                        Spacer()
+                        Button("Weekdays") { weekdays = Set(2...6) }
+                        Spacer()
+                        Button("Weekend") { weekdays = [1, 7] }
+                    }
+                    .font(.footnote)
+                }
+
+                if validationMessage == nil {
+                    Section {
+                        ForEach(configuration.generatedMinutes, id: \.self) { minuteOfDay in
+                            LabeledContent(alarmTimeText(minuteOfDay), value: daySummary)
+                        }
+                    } header: {
+                        Text("Alarm preview")
+                    } footer: {
+                        Text("\(configuration.alarmCount) recurring system alarm\(configuration.alarmCount == 1 ? "" : "s") will be kept in sync with this routine.")
+                    }
                 }
 
                 if let validationMessage {
@@ -123,6 +144,21 @@ struct AddScheduleView: View {
         .buttonStyle(.plain)
         .accessibilityLabel(Calendar.current.weekdaySymbols[day - 1])
         .accessibilityAddTraits(selected ? .isSelected : [])
+    }
+
+    private var daySummary: String {
+        if weekdays.count == 7 { return "Every day" }
+        let symbols = Calendar.current.shortWeekdaySymbols
+        return weekdays.sorted()
+            .compactMap { (1...7).contains($0) ? symbols[$0 - 1] : nil }
+            .joined(separator: " · ")
+    }
+
+    private func alarmTimeText(_ minuteOfDay: Int) -> String {
+        let date = Calendar.current.date(
+            from: DateComponents(hour: minuteOfDay / 60, minute: minuteOfDay % 60)
+        ) ?? Date()
+        return date.formatted(date: .omitted, time: .shortened)
     }
 
     private func intervalLabel(_ minutes: Int) -> String {

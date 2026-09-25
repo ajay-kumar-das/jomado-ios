@@ -14,8 +14,6 @@ targets:
     sources:
       - path: JomadoApp
       - path: Resources
-    info:
-      path: Config/Info.plist
     entitlements:
       path: Config/Jomado.entitlements
     dependencies:
@@ -23,6 +21,8 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.ajaydas.jomado
+        INFOPLIST_FILE: Config/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
         SWIFT_VERSION: 6.0
         CODE_SIGN_STYLE: Automatic
         TARGETED_DEVICE_FAMILY: "1"

@@ -31,6 +31,17 @@ enum AlarmAuthorizationStatus: String, Equatable, Sendable {
     }
 }
 
+enum AlarmSchedulerConfigurationError: LocalizedError {
+    case missingUsageDescription
+
+    var errorDescription: String? {
+        switch self {
+        case .missingUsageDescription:
+            return "AlarmKit is unavailable in this build because NSAlarmKitUsageDescription is missing from the built app Info.plist. Reinstall a corrected Jomado build."
+        }
+    }
+}
+
 @MainActor
 final class AlarmScheduler {
     var authorizationStatus: AlarmAuthorizationStatus {
@@ -43,6 +54,8 @@ final class AlarmScheduler {
     }
 
     func requestAuthorization() async throws -> AlarmAuthorizationStatus {
+        try validateBundleConfiguration()
+
         let state = try await AlarmManager.shared.requestAuthorization()
         switch state {
         case .authorized: return .authorized
@@ -53,10 +66,13 @@ final class AlarmScheduler {
     }
 
     func registeredAlarmIDs() throws -> Set<UUID> {
-        Set(try AlarmManager.shared.alarms.map(\.id))
+        try validateBundleConfiguration()
+        return Set(try AlarmManager.shared.alarms.map(\.id))
     }
 
     func schedule(_ alarm: HydrationAlarmEntity, for routine: HydrationScheduleEntity) async throws {
+        try validateBundleConfiguration()
+
         let time = Alarm.Schedule.Relative.Time(
             hour: alarm.hour,
             minute: alarm.minute
@@ -116,6 +132,17 @@ final class AlarmScheduler {
         case 6: return .friday
         case 7: return .saturday
         default: return nil
+        }
+    }
+
+    private func validateBundleConfiguration() throws {
+        let usageDescription = Bundle.main.object(
+            forInfoDictionaryKey: "NSAlarmKitUsageDescription"
+        ) as? String
+
+        guard let usageDescription,
+              !usageDescription.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            throw AlarmSchedulerConfigurationError.missingUsageDescription
         }
     }
 }
