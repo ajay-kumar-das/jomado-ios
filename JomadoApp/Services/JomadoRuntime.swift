@@ -489,7 +489,9 @@ final class JomadoRuntime: ObservableObject {
                     existing.score = CompletionScoring.score(
                         delaySeconds: max(0, event.timestamp.timeIntervalSince(existing.scheduledAt))
                     )
-                    companionScheduler.cancelFollowUp(routineID: existing.scheduleID, scheduledAt: existing.scheduledAt)
+                    if let routineID = existing.scheduleID {
+                        companionScheduler.cancelFollowUp(routineID: routineID, scheduledAt: existing.scheduledAt)
+                    }
                 } else if [.dismissed, .remindLater].contains(event.kind),
                           [.scheduled, .alarming].contains(existing.state) {
                     existing.state = .acknowledged
@@ -638,18 +640,25 @@ final class JomadoRuntime: ObservableObject {
         occurrence.acknowledgedAt = occurrence.acknowledgedAt ?? now
         try? modelContext?.save()
 
-        do {
-            try await companionScheduler.scheduleFollowUp(
-                routineID: occurrence.scheduleID,
-                scheduledAt: occurrence.scheduledAt,
-                taskType: .hydration,
-                contentID: current.content.id,
-                mascot: current.content.mascot.id,
-                delayMinutes: 10
-            )
-        } catch {
-            lastError = "Jomado could not schedule the 10-minute reminder: \(error.localizedDescription)"
+        if occurrence.scheduleID == nil && !occurrence.isSimulation {
+            lastError = "This reminder is missing its hydration routine. Open Today and retry after the routine is restored."
             return
+        }
+
+        if let routineID = occurrence.scheduleID {
+            do {
+                try await companionScheduler.scheduleFollowUp(
+                    routineID: routineID,
+                    scheduledAt: occurrence.scheduledAt,
+                    taskType: .hydration,
+                    contentID: current.content.id,
+                    mascot: current.content.mascot.id,
+                    delayMinutes: 10
+                )
+            } catch {
+                lastError = "Jomado could not schedule the 10-minute reminder: \(error.localizedDescription)"
+                return
+            }
         }
 
         await companionActivityCoordinator.end(current, completed: false)
@@ -669,7 +678,9 @@ final class JomadoRuntime: ObservableObject {
         )
         exposure(withID: current.exposureID)?.completedAt = now
         try? modelContext?.save()
-        companionScheduler.cancelFollowUp(routineID: occurrence.scheduleID, scheduledAt: occurrence.scheduledAt)
+        if let routineID = occurrence.scheduleID {
+            companionScheduler.cancelFollowUp(routineID: routineID, scheduledAt: occurrence.scheduledAt)
+        }
         Task { await companionActivityCoordinator.end(current, completed: true) }
         activeReminder = nil
         restorePendingReminder()
@@ -683,7 +694,9 @@ final class JomadoRuntime: ObservableObject {
         occurrence.skippedAt = now
         exposure(withID: current.exposureID)?.skippedAt = now
         try? modelContext?.save()
-        companionScheduler.cancelFollowUp(routineID: occurrence.scheduleID, scheduledAt: occurrence.scheduledAt)
+        if let routineID = occurrence.scheduleID {
+            companionScheduler.cancelFollowUp(routineID: routineID, scheduledAt: occurrence.scheduledAt)
+        }
         Task { await companionActivityCoordinator.end(current, completed: false) }
         activeReminder = nil
         restorePendingReminder()
