@@ -17,7 +17,10 @@ struct TodayView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     header
-                    if runtime.alarmDiagnostics.needsAttention && !routines.isEmpty {
+                    if runtime.companionDiagnostics.needsAttention && routines.contains(where: { $0.enabled && $0.deliveryMode.usesCompanionNotification }) {
+                        companionStatusCard
+                    }
+                    if runtime.alarmDiagnostics.needsAttention && routines.contains(where: { $0.enabled && $0.deliveryMode.usesAlarmKit }) {
                         alarmStatusCard
                     }
                     if routines.isEmpty { emptyCard } else { routineList }
@@ -71,12 +74,29 @@ struct TodayView: View {
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 } else {
-                    Text("Set a window and Jomado will generate the alarms.")
+                    Text("Set a window and Jomado will generate your companion reminders.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
             }
         }
+    }
+
+    private var companionStatusCard: some View {
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: runtime.companionDiagnostics.authorization.systemImage)
+                .font(.title3)
+                .foregroundStyle(.orange)
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Companion reminders need attention").font(.headline)
+                Text(runtime.companionDiagnostics.detail)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+            Spacer()
+        }
+        .padding()
+        .background(.orange.opacity(0.10), in: RoundedRectangle(cornerRadius: 20))
     }
 
     private var alarmStatusCard: some View {
@@ -102,7 +122,7 @@ struct TodayView: View {
                 .font(.system(size: 42))
                 .foregroundStyle(.cyan)
             Text("No hydration routine yet").font(.headline)
-            Text("Choose a daily window, interval, and weekdays. Jomado will create each AlarmKit alarm for you.")
+            Text("Choose a daily window, interval, and weekdays. Companion mode keeps the experience gentle on the Lock Screen; Alarm mode stays available when you want something stronger.")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
@@ -150,7 +170,11 @@ struct TodayView: View {
             HStack {
                 Label("\(routine.configuration.alarmCount) planned", systemImage: "clock")
                 Spacer()
-                Label("\(generatedCount) tracked", systemImage: "alarm.fill")
+                if routine.deliveryMode.usesAlarmKit {
+                    Label("\(generatedCount) alarms", systemImage: "alarm.fill")
+                } else {
+                    Label("Companion", systemImage: "message.badge.waveform.fill")
+                }
             }
             .font(.caption)
             .foregroundStyle(.secondary)
@@ -178,6 +202,14 @@ struct TodayView: View {
         let completed = real.filter { $0.completedAt != nil }.count
         let skipped = real.filter { $0.skippedAt != nil }.count
         let missed = real.filter { $0.expiredAt != nil }.count
+        let open = real.filter { occurrence in
+            occurrence.completedAt == nil &&
+            occurrence.skippedAt == nil &&
+            occurrence.expiredAt == nil &&
+            [.alarming, .acknowledged, .overdue, .actionStarted].contains(occurrence.state)
+        }.count
+        let resolved = completed + skipped + missed
+        let completionRate = resolved == 0 ? nil : Int((Double(completed) / Double(resolved) * 100).rounded())
         return VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Text("Today").font(.headline)
@@ -188,10 +220,23 @@ struct TodayView: View {
             }
             HStack(spacing: 8) {
                 stat("Completed", "\(completed)", "checkmark.circle.fill", .green)
+                stat("Open", "\(open)", "drop.circle.fill", .cyan)
                 stat("Skipped", "\(skipped)", "forward.end.circle.fill", .orange)
                 stat("Missed", "\(missed)", "clock.badge.xmark.fill", .red)
             }
-            Label("Silencing an alarm never counts as completion.", systemImage: "speaker.slash")
+            if let completionRate {
+                HStack(spacing: 8) {
+                    Image(systemName: "chart.line.uptrend.xyaxis")
+                    Text("\(completionRate)% of resolved reminders completed today")
+                }
+                .font(.footnote.weight(.medium))
+                .foregroundStyle(.secondary)
+            } else if open > 0 {
+                Text("You have an open hydration reminder. It stays open until you complete, skip, or it expires.")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+            Label("Silencing, dismissing, or snoozing never counts as completion.", systemImage: "speaker.slash")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
         }

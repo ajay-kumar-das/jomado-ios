@@ -63,7 +63,8 @@ public struct HydrationRoutineConfiguration: Codable, Hashable, Sendable {
         guard endMinuteOfDay >= startMinuteOfDay else {
             throw HydrationRoutineValidationError.endBeforeStart
         }
-        guard (Self.minimumIntervalMinutes...Self.maximumIntervalMinutes).contains(intervalMinutes) else {
+        guard (Self.minimumIntervalMinutes...Self.maximumIntervalMinutes).contains(intervalMinutes),
+              intervalMinutes.isMultiple(of: 15) else {
             throw HydrationRoutineValidationError.invalidInterval
         }
         guard !weekdays.isEmpty else {

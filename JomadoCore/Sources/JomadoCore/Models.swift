@@ -1,12 +1,35 @@
 import Foundation
 
-public enum TaskType: String, Codable, CaseIterable, Sendable { case hydration }
+public enum TaskType: String, Codable, CaseIterable, Sendable {
+    case hydration
+    case stretch
+    case eyeBreak
+    case posture
+    case breathing
+    case yoga
+    case walk
+}
 public enum ReminderState: String, Codable, CaseIterable, Sendable { case scheduled, alarming, acknowledged, overdue, actionStarted, completed, skipped, expired }
 public enum UrgencyStage: String, Codable, CaseIterable, Sendable { case normal, lightOverdue, mediumOverdue, redZone }
 public enum Strategy: String, Codable, CaseIterable, Sendable { case cutePositive, humor, challenge, microStory, gameRPG, supportive, playfulDramatic, minimal }
 public enum MascotID: String, Codable, CaseIterable, Sendable { case momo, sparky, pip }
-public enum MascotExpression: String, Codable, CaseIterable, Sendable { case idle, hello, waiting, concerned, urgent, celebrating }
+public enum MascotExpression: String, Codable, CaseIterable, Sendable { case idle, hello, waiting, hopeful, pouty, concerned, urgent, sleepy, proud, celebrating }
 public enum DayPart: String, Codable, CaseIterable, Sendable { case morning, afternoon, evening, night }
+
+public enum ReminderDeliveryMode: String, Codable, CaseIterable, Sendable {
+    case companion
+    case alarm
+
+    public var usesCompanionNotification: Bool { self == .companion }
+    public var usesAlarmKit: Bool { self == .alarm }
+
+    public var title: String {
+        switch self {
+        case .companion: return "Companion"
+        case .alarm: return "Alarm"
+        }
+    }
+}
 
 public struct ContentMessage: Codable, Hashable, Sendable {
     public let title: String

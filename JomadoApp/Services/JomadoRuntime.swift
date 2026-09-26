@@ -30,7 +30,8 @@ struct AlarmDiagnostics: Equatable {
     var detail = "Alarm status has not been checked yet."
 
     var needsAttention: Bool {
-        authorization != .authorized || expectedAlarmCount != registeredAlarmCount
+        guard expectedAlarmCount > 0 else { return false }
+        return authorization != .authorized || expectedAlarmCount != registeredAlarmCount
     }
 }
 
@@ -40,10 +41,15 @@ final class JomadoRuntime: ObservableObject {
     @Published private(set) var contentCount = 0
     @Published private(set) var contentDiagnostic = ""
     @Published private(set) var alarmDiagnostics = AlarmDiagnostics()
+    @Published private(set) var companionDiagnostics = CompanionNotificationDiagnostics()
+    @Published private(set) var companionActivityDiagnostics = CompanionActivityDiagnostics()
+    @Published private(set) var companionPushRegistrationDiagnostics = CompanionPushRegistrationDiagnostics()
     @Published private(set) var isReconcilingAlarms = false
     @Published var lastError: String?
 
     let alarmScheduler = AlarmScheduler()
+    let companionScheduler = CompanionNotificationScheduler()
+    let companionActivityCoordinator = CompanionActivityCoordinator.shared
 
     private let contentRepository = ContentRepository()
     private let engine = ContentEngine(explorationRate: 0.12)
@@ -54,20 +60,35 @@ final class JomadoRuntime: ObservableObject {
         contentCount = contentRepository.items.count
         contentDiagnostic = contentRepository.diagnostic
         alarmDiagnostics.authorization = alarmScheduler.authorizationStatus
+        companionActivityCoordinator.beginPushTokenObservation()
+        refreshCompanionActivityDiagnostics()
     }
 
     func attach(modelContext: ModelContext) async {
         self.modelContext = modelContext
         migrateLegacyRoutines()
         consumeSharedEvents()
+        consumeCompanionEvents()
         restorePendingReminder()
         await reconcileAlarms()
+        await reconcileCompanionNotifications()
+    }
+
+    func refreshCompanionActivityDiagnostics() {
+        companionActivityDiagnostics = companionActivityCoordinator.diagnostics
+        Task {
+            companionPushRegistrationDiagnostics = await companionActivityCoordinator.remoteRegistrationDiagnostics()
+        }
     }
 
     func refreshSystemState() async {
+        refreshCompanionActivityDiagnostics()
         consumeSharedEvents()
+        consumeCompanionEvents()
         restorePendingReminder()
         await reconcileAlarms()
+        await reconcileCompanionNotifications()
+        refreshCompanionActivityDiagnostics()
     }
 
     @discardableResult
@@ -88,6 +109,22 @@ final class JomadoRuntime: ObservableObject {
     }
 
     @discardableResult
+    func requestCompanionAuthorization() async -> Bool {
+        do {
+            let status = try await companionScheduler.requestAuthorization()
+            companionDiagnostics.authorization = status
+            await reconcileCompanionNotifications()
+            if status != .authorized {
+                lastError = "Notification access is off. Companion reminders cannot appear while Jomado is closed until access is allowed in Settings."
+            }
+            return status == .authorized
+        } catch {
+            lastError = "Jomado could not request notification access: \(error.localizedDescription)"
+            return false
+        }
+    }
+
+    @discardableResult
     func saveRoutine(
         _ routine: HydrationScheduleEntity?,
         startHour: Int,
@@ -95,7 +132,8 @@ final class JomadoRuntime: ObservableObject {
         endHour: Int,
         endMinute: Int,
         intervalMinutes: Int,
-        weekdays: [Int]
+        weekdays: [Int],
+        deliveryMode: ReminderDeliveryMode
     ) async -> Bool {
         guard let context = modelContext else { return false }
         let configuration = HydrationRoutineConfiguration(
@@ -114,7 +152,8 @@ final class JomadoRuntime: ObservableObject {
                     endHour: endHour,
                     endMinute: endMinute,
                     intervalMinutes: intervalMinutes,
-                    weekdays: weekdays
+                    weekdays: weekdays,
+                    deliveryMode: deliveryMode
                 )
             } else {
                 context.insert(HydrationScheduleEntity(
@@ -123,12 +162,19 @@ final class JomadoRuntime: ObservableObject {
                     endHour: endHour,
                     endMinute: endMinute,
                     intervalMinutes: intervalMinutes,
-                    weekdays: weekdays
+                    weekdays: weekdays,
+                    deliveryMode: deliveryMode
                 ))
             }
             try context.save()
             await reconcileAlarms()
-            if alarmDiagnostics.needsAttention {
+            if deliveryMode.usesCompanionNotification,
+               await companionScheduler.authorizationStatus() == .notDetermined {
+                _ = await requestCompanionAuthorization()
+            } else {
+                await reconcileCompanionNotifications()
+            }
+            if deliveryMode.usesAlarmKit && alarmDiagnostics.needsAttention {
                 lastError = alarmDiagnostics.detail
             }
             return true
@@ -144,6 +190,7 @@ final class JomadoRuntime: ObservableObject {
         do {
             try modelContext?.save()
             await reconcileAlarms()
+            await reconcileCompanionNotifications()
         } catch {
             lastError = "The routine could not be updated: \(error.localizedDescription)"
         }
@@ -155,6 +202,7 @@ final class JomadoRuntime: ObservableObject {
         do {
             try context.save()
             await reconcileAlarms()
+            await reconcileCompanionNotifications()
         } catch {
             lastError = "The routine could not be deleted: \(error.localizedDescription)"
         }
@@ -178,7 +226,7 @@ final class JomadoRuntime: ObservableObject {
         var routinesByID: [UUID: HydrationScheduleEntity] = [:]
         for routine in routines {
             routinesByID[routine.id] = routine
-            guard routine.enabled else { continue }
+            guard routine.enabled, routine.deliveryMode.usesAlarmKit else { continue }
             do {
                 try routine.configuration.validate()
                 desired.append(contentsOf: routine.configuration.generatedMinutes.map {
@@ -372,6 +420,139 @@ final class JomadoRuntime: ObservableObject {
         try? modelContext?.save()
     }
 
+    func reconcileCompanionNotifications() async {
+        guard let context = modelContext else { return }
+        let routines = (try? context.fetch(
+            FetchDescriptor<HydrationScheduleEntity>(sortBy: [SortDescriptor(\.createdAt)])
+        )) ?? []
+        let now = Date()
+        var calendar = Calendar.autoupdatingCurrent
+        calendar.timeZone = .autoupdatingCurrent
+        var plans: [CompanionNotificationPlan] = []
+
+        for routine in routines where routine.enabled && routine.deliveryMode.usesCompanionNotification {
+            do { try routine.configuration.validate() } catch { continue }
+            for offset in 0..<8 {
+                guard let day = calendar.date(byAdding: .day, value: offset, to: now) else { continue }
+                for scheduledAt in routine.configuration.occurrences(on: day, calendar: calendar) where scheduledAt > now {
+                    guard let content = notificationContent(for: scheduledAt) else { continue }
+                    let localDay = HydrationRoutineConfiguration.localDayIdentifier(for: scheduledAt, calendar: calendar)
+                    plans.append(.init(
+                        identifier: "\(routine.id.uuidString).\(localDay).\(Int(scheduledAt.timeIntervalSince1970))",
+                        routineID: routine.id,
+                        scheduledAt: scheduledAt,
+                        taskType: .hydration,
+                        title: content.message.title,
+                        body: content.message.body,
+                        contentID: content.id,
+                        mascot: content.mascot.id,
+                        weekdays: routine.configuration.weekdays
+                    ))
+                }
+            }
+        }
+
+        do {
+            companionDiagnostics = try await companionScheduler.reconcile(plans: plans)
+        } catch {
+            companionDiagnostics = CompanionNotificationDiagnostics(
+                authorization: await companionScheduler.authorizationStatus(),
+                scheduledCount: 0,
+                lastReconciledAt: Date(),
+                detail: "Jomado could not schedule companion reminders: \(error.localizedDescription)"
+            )
+            lastError = companionDiagnostics.detail
+        }
+    }
+
+    func consumeCompanionEvents() {
+        guard let context = modelContext else { return }
+        let events = SharedCompanionEventQueue.peek().sorted(by: { $0.timestamp < $1.timestamp })
+        guard !events.isEmpty else { return }
+
+        let routines = (try? context.fetch(FetchDescriptor<HydrationScheduleEntity>())) ?? []
+        let existingOccurrences = (try? context.fetch(FetchDescriptor<ReminderOccurrenceEntity>())) ?? []
+        var processed = Set<UUID>()
+
+        for event in events {
+            guard let routine = routines.first(where: { $0.id == event.routineID }) else { continue }
+            var calendar = Calendar.autoupdatingCurrent
+            calendar.timeZone = .autoupdatingCurrent
+            let minute = calendar.component(.hour, from: event.scheduledAt) * 60 + calendar.component(.minute, from: event.scheduledAt)
+            let key = "companion|\(routine.id.uuidString)|\(HydrationRoutineConfiguration.localDayIdentifier(for: event.scheduledAt, calendar: calendar))|\(minute)"
+
+            if let existing = existingOccurrences.first(where: { $0.occurrenceKey == key }) {
+                if event.kind == .completed, !Self.isTerminal(existing.state) {
+                    existing.state = .completed
+                    existing.actionStartedAt = existing.actionStartedAt ?? event.timestamp
+                    existing.completedAt = event.timestamp
+                    existing.score = CompletionScoring.score(
+                        delaySeconds: max(0, event.timestamp.timeIntervalSince(existing.scheduledAt))
+                    )
+                    companionScheduler.cancelFollowUp(routineID: existing.scheduleID, scheduledAt: existing.scheduledAt)
+                } else if [.dismissed, .remindLater].contains(event.kind),
+                          [.scheduled, .alarming].contains(existing.state) {
+                    existing.state = .acknowledged
+                    existing.acknowledgedAt = existing.acknowledgedAt ?? event.timestamp
+                } else if event.kind == .open, !Self.isTerminal(existing.state) {
+                    existing.state = .actionStarted
+                    existing.actionStartedAt = existing.actionStartedAt ?? event.timestamp
+                    present(existing)
+                }
+                processed.insert(event.id)
+                continue
+            }
+
+            let content = event.contentID.flatMap { id in contentRepository.items.first(where: { $0.id == id }) }
+                ?? notificationContent(for: event.scheduledAt)
+            guard let content else { continue }
+            let initialState: ReminderState = event.kind == .completed
+                ? .completed
+                : ([.dismissed, .remindLater].contains(event.kind) ? .acknowledged : .actionStarted)
+            let occurrence = ReminderOccurrenceEntity(
+                scheduleID: routine.id,
+                alarmID: nil,
+                occurrenceKey: key,
+                timeZoneIdentifier: calendar.timeZone.identifier,
+                state: initialState,
+                scheduledAt: event.scheduledAt,
+                content: content
+            )
+            if event.kind == .completed {
+                occurrence.actionStartedAt = event.timestamp
+                occurrence.completedAt = event.timestamp
+                occurrence.score = CompletionScoring.score(
+                    delaySeconds: max(0, event.timestamp.timeIntervalSince(event.scheduledAt))
+                )
+                companionScheduler.cancelFollowUp(routineID: routine.id, scheduledAt: event.scheduledAt)
+            } else if [.dismissed, .remindLater].contains(event.kind) {
+                occurrence.acknowledgedAt = event.timestamp
+                // Intentionally remain pending. Dismissal is not task completion.
+            } else {
+                occurrence.actionStartedAt = event.timestamp
+                present(occurrence)
+            }
+            context.insert(occurrence)
+            processed.insert(event.id)
+        }
+
+        do {
+            try context.save()
+            SharedCompanionEventQueue.remove(ids: processed)
+        } catch {
+            lastError = "Jomado could not restore a companion reminder: \(error.localizedDescription)"
+        }
+    }
+
+    private func notificationContent(for scheduledAt: Date) -> ContentItem? {
+        let candidates = contentRepository.items.filter {
+            $0.taskType == .hydration && $0.stage == .normal
+        }
+        guard !candidates.isEmpty else { return nil }
+        let slot = abs(Int(scheduledAt.timeIntervalSince1970 / 60)) % candidates.count
+        return candidates[slot]
+    }
+
     func triggerDeveloperReminder(minutesLate: Int = 0, forcedStrategy: Strategy? = nil) {
         let scheduledAt = Date().addingTimeInterval(TimeInterval(-minutesLate * 60))
         createAndPresentOccurrence(
@@ -416,6 +597,10 @@ final class JomadoRuntime: ObservableObject {
             content: content,
             isSimulation: occurrence.isSimulation
         )
+        if !occurrence.isSimulation {
+            let reminder = activeReminder
+            Task { if let reminder { await companionActivityCoordinator.present(reminder) } }
+        }
     }
 
     func acknowledge() {
@@ -441,6 +626,37 @@ final class JomadoRuntime: ObservableObject {
         try? modelContext?.save()
     }
 
+    func remindLater() async {
+        guard let current = activeReminder,
+              let occurrence = occurrence(withID: current.id),
+              !Self.isTerminal(occurrence.state) else { return }
+
+        let now = Date()
+        if [.scheduled, .alarming, .overdue, .actionStarted].contains(occurrence.state) {
+            occurrence.state = .acknowledged
+        }
+        occurrence.acknowledgedAt = occurrence.acknowledgedAt ?? now
+        try? modelContext?.save()
+
+        do {
+            try await companionScheduler.scheduleFollowUp(
+                routineID: occurrence.scheduleID,
+                scheduledAt: occurrence.scheduledAt,
+                taskType: .hydration,
+                contentID: current.content.id,
+                mascot: current.content.mascot.id,
+                delayMinutes: 10
+            )
+        } catch {
+            lastError = "Jomado could not schedule the 10-minute reminder: \(error.localizedDescription)"
+            return
+        }
+
+        await companionActivityCoordinator.end(current, completed: false)
+        activeReminder = nil
+        restorePendingReminder(excludingOccurrenceID: occurrence.id)
+    }
+
     func complete() {
         guard let current = activeReminder,
               let occurrence = occurrence(withID: current.id) else { return }
@@ -453,6 +669,8 @@ final class JomadoRuntime: ObservableObject {
         )
         exposure(withID: current.exposureID)?.completedAt = now
         try? modelContext?.save()
+        companionScheduler.cancelFollowUp(routineID: occurrence.scheduleID, scheduledAt: occurrence.scheduledAt)
+        Task { await companionActivityCoordinator.end(current, completed: true) }
         activeReminder = nil
         restorePendingReminder()
     }
@@ -465,6 +683,8 @@ final class JomadoRuntime: ObservableObject {
         occurrence.skippedAt = now
         exposure(withID: current.exposureID)?.skippedAt = now
         try? modelContext?.save()
+        companionScheduler.cancelFollowUp(routineID: occurrence.scheduleID, scheduledAt: occurrence.scheduledAt)
+        Task { await companionActivityCoordinator.end(current, completed: false) }
         activeReminder = nil
         restorePendingReminder()
     }
@@ -521,6 +741,7 @@ final class JomadoRuntime: ObservableObject {
             if routine.endMinute == nil { routine.endMinute = routine.minute; changed = true }
             if routine.intervalMinutes == nil { routine.intervalMinutes = 60; changed = true }
             if routine.updatedAt == nil { routine.updatedAt = routine.createdAt; changed = true }
+            if routine.deliveryModeRaw == nil { routine.deliveryModeRaw = ReminderDeliveryMode.alarm.rawValue; changed = true }
         }
         if changed { try? context.save() }
     }
@@ -667,9 +888,13 @@ final class JomadoRuntime: ObservableObject {
             content: content,
             isSimulation: occurrence.isSimulation
         )
+        if !occurrence.isSimulation {
+            let reminder = activeReminder
+            Task { if let reminder { await companionActivityCoordinator.present(reminder) } }
+        }
     }
 
-    private func restorePendingReminder() {
+    private func restorePendingReminder(excludingOccurrenceID: UUID? = nil) {
         guard activeReminder == nil, let context = modelContext else { return }
         let rows = ((try? context.fetch(
             FetchDescriptor<ReminderOccurrenceEntity>(sortBy: [SortDescriptor(\.scheduledAt, order: .reverse)])
@@ -679,7 +904,9 @@ final class JomadoRuntime: ObservableObject {
             row.state = .expired
             row.expiredAt = now
         }
-        if let pending = rows.first(where: { !Self.isTerminal($0.state) }) {
+        if let pending = rows.first(where: {
+            !Self.isTerminal($0.state) && $0.id != excludingOccurrenceID
+        }) {
             present(pending)
         }
         try? context.save()

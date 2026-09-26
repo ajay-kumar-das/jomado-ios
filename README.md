@@ -1,5 +1,7 @@
 # Jomado iOS
 
+Version 0.3 companion-delivery iteration.
+
 Native SwiftUI iOS 26+ hydration MVP for the local-first Jomado accountability companion.
 
 ## Included
@@ -44,5 +46,10 @@ AlarmKit supplies a system stop control. Jomado records stopping/silencing as ac
 
 Jomado diffs its persisted alarm IDs against `AlarmManager` and changes only missing, stale, or reconfigured alarms. It does not cancel and recreate healthy alarms on every launch.
 
-## AI verification
-Not included by design. Add it later behind a `VerificationProvider` interface after the core reminder loop is validated.
+## Companion delivery (0.3)
+- New routines default to Companion mode: local notifications plus a Lock Screen / Dynamic Island Live Activity.
+- Existing routines retain Alarm mode during migration so an update does not silently weaken already-configured reminders.
+- Dismissing a notification or silencing an alarm never completes a task.
+- iOS-delivered local notifications continue to fire while Jomado is closed.
+- The Live Activity updates locally once started and the client captures an ActivityKit push-to-start token. A backend/APNs registration path is still required before Jomado can start a brand-new Live Activity at reminder time when the app process is completely terminated.
+- AlarmKit remains available as an explicit delivery mode.

@@ -2,9 +2,13 @@ name: Build Jomado IPA
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
+      - "companion/**"
 
 jobs:
   build:
@@ -31,11 +35,16 @@ jobs:
           assert items, "hydration.json is empty"
           ids = [item["id"] for item in items]
           assert len(ids) == len(set(ids)), "hydration.json has duplicate IDs"
+          stages = set()
           for item in items:
+              assert item["taskType"] == "hydration", f"wrong task type: {item['id']}"
               assert item["message"]["title"].strip(), f"blank title: {item['id']}"
               assert item["message"]["body"].strip(), f"blank body: {item['id']}"
               assert item["stage"] in item["context"]["urgencies"], f"stage mismatch: {item['id']}"
-          print(f"Validated {len(items)} hydration messages")
+              stages.add(item["stage"])
+          required_stages = {"normal", "lightOverdue", "mediumOverdue", "redZone"}
+          assert stages == required_stages, f"hydration.json stage coverage mismatch: {sorted(stages)}"
+          print(f"Validated {len(items)} hydration messages across all urgency stages")
           PY
           plutil -lint Config/Info.plist Resources/PrivacyInfo.xcprivacy
 
@@ -72,17 +81,21 @@ jobs:
           test -f "$INFO_PLIST"
           test -n "$(find "$APP_PATH" -name hydration.json -print -quit)"
           test -f "$APP_PATH/PrivacyInfo.xcprivacy"
+          test -d "$APP_PATH/PlugIns/JomadoCompanionWidgets.appex"
 
           ALARM_USAGE_DESCRIPTION=$(/usr/libexec/PlistBuddy -c 'Print :NSAlarmKitUsageDescription' "$INFO_PLIST")
           APP_VERSION=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$INFO_PLIST")
           BUNDLE_ID=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$INFO_PLIST")
+          LIVE_ACTIVITIES=$(/usr/libexec/PlistBuddy -c 'Print :NSSupportsLiveActivities' "$INFO_PLIST")
 
           test -n "$ALARM_USAGE_DESCRIPTION"
-          test "$APP_VERSION" = "0.2"
+          test "$APP_VERSION" = "0.3"
           test "$BUNDLE_ID" = "com.ajaydas.jomado"
+          test "$LIVE_ACTIVITIES" = "true"
 
           echo "Verified built Info.plist: version=$APP_VERSION bundle=$BUNDLE_ID"
           echo "AlarmKit usage description is present in the built app."
+          echo "Live Activity support and companion widget extension are present."
 
       - name: Create unsigned IPA
         run: |

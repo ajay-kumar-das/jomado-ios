@@ -17,7 +17,11 @@ final class ContentRepository {
             }
             let data = try Data(contentsOf: url)
             let decoded = try JSONDecoder().decode([ContentItem].self, from: data)
-            try ContentCatalogValidator.validate(decoded)
+            try ContentCatalogValidator.validate(
+                decoded,
+                expectedTaskType: .hydration,
+                requiredUrgencyStages: Set(UrgencyStage.allCases)
+            )
             items = decoded
             diagnostic = "Loaded \(decoded.count) bundled hydration messages."
         } catch {

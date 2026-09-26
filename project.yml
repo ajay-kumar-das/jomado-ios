@@ -13,11 +13,14 @@ targets:
     deploymentTarget: "26.0"
     sources:
       - path: JomadoApp
+      - path: JomadoShared
       - path: Resources
     entitlements:
       path: Config/Jomado.entitlements
     dependencies:
       - package: JomadoCore
+      - target: JomadoCompanionWidgets
+        embed: true
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.ajaydas.jomado
@@ -26,6 +29,22 @@ targets:
         SWIFT_VERSION: 6.0
         CODE_SIGN_STYLE: Automatic
         TARGETED_DEVICE_FAMILY: "1"
+
+  JomadoCompanionWidgets:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: JomadoCompanionWidgets
+      - path: JomadoShared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ajaydas.jomado.companion
+        INFOPLIST_FILE: Config/JomadoCompanionWidgets-Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        SWIFT_VERSION: 6.0
+        TARGETED_DEVICE_FAMILY: "1"
+        APPLICATION_EXTENSION_API_ONLY: YES
 schemes:
   Jomado:
     build:

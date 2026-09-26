@@ -4,6 +4,7 @@ import JomadoCore
 struct MascotView: View {
     let mascot: MascotID
     let expression: MascotExpression
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var bounce = false
 
     private var symbol: String {
@@ -19,10 +20,14 @@ struct MascotView: View {
             Image(systemName: symbol).font(.system(size: 58, weight: .bold)).foregroundStyle(.white)
             face
         }
-        .scaleEffect(bounce ? 1.04 : 0.97)
-        .rotationEffect(.degrees(expression == .urgent && bounce ? 2 : 0))
-        .animation(.easeInOut(duration: expression == .urgent ? 0.35 : 0.9).repeatForever(autoreverses: true), value: bounce)
-        .onAppear { bounce = true }
+        .scaleEffect(reduceMotion ? 1 : (bounce ? 1.04 : 0.97))
+        .rotationEffect(.degrees(reduceMotion ? 0 : (expression == .urgent && bounce ? 2 : 0)))
+        .animation(
+            reduceMotion ? nil : .easeInOut(duration: expression == .urgent ? 0.35 : 0.9).repeatForever(autoreverses: true),
+            value: bounce
+        )
+        .onAppear { bounce = !reduceMotion }
+        .onChange(of: reduceMotion) { _, enabled in bounce = !enabled }
         .accessibilityLabel("\(mascot.rawValue) mascot, \(expression.rawValue)")
     }
 

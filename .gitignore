@@ -1,0 +1,17 @@
+# Xcode / SwiftPM generated state
+.DS_Store
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+
+# Generated project (source of truth is project.yml)
+Jomado.xcodeproj/
+
+# Swift Package Manager
+**/.build/
+.swiftpm/
+
+# Local packaging
+Payload/
+*.ipa

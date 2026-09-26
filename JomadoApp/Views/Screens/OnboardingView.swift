@@ -14,13 +14,13 @@ struct OnboardingView: View {
             }
             VStack(alignment: .leading, spacing: 14) {
                 Label("A start-to-end hydration routine", systemImage: "calendar.badge.clock")
-                Label("Prominent AlarmKit reminders", systemImage: "alarm.fill")
+                Label("Cute Lock Screen companion reminders", systemImage: "message.badge.waveform.fill")
                 Label("Private, on-device insights", systemImage: "lock.fill")
             }.frame(maxWidth: .infinity, alignment: .leading).padding().background(.thinMaterial, in: RoundedRectangle(cornerRadius: 22))
-            Button(requestingAccess ? "Requesting…" : "Enable alarms & continue") {
+            Button(requestingAccess ? "Requesting…" : "Enable reminders & continue") {
                 requestingAccess = true
                 Task {
-                    _ = await runtime.requestAlarmAuthorization()
+                    _ = await runtime.requestCompanionAuthorization()
                     requestingAccess = false
                     hasOnboarded = true
                 }
@@ -28,7 +28,7 @@ struct OnboardingView: View {
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
             .disabled(requestingAccess)
-            Button("Continue without alarms") { hasOnboarded = true }.font(.footnote)
+            Button("Continue without notifications") { hasOnboarded = true }.font(.footnote)
             Text("Silencing or stopping an alarm never marks water as drunk.")
                 .font(.caption)
                 .foregroundStyle(.secondary)

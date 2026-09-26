@@ -40,7 +40,16 @@ struct ReminderExperienceView: View {
                                 Label("I drank water", systemImage: "checkmark.circle.fill").frame(maxWidth: .infinity).padding(.vertical, 8)
                             }.buttonStyle(.borderedProminent).controlSize(.large)
 
-                            Label("Alarm silence only acknowledges the alert — this task stays open.", systemImage: "speaker.slash.fill")
+                            Button {
+                                Task { await runtime.remindLater() }
+                            } label: {
+                                Label("Remind me in 10 min", systemImage: "clock.arrow.circlepath")
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.bordered)
+                            .controlSize(.large)
+
+                            Label("Silencing, dismissing, or snoozing only acknowledges the alert — this task stays open.", systemImage: "speaker.slash.fill")
                                 .font(.footnote)
                                 .foregroundStyle(.secondary)
                                 .multilineTextAlignment(.center)

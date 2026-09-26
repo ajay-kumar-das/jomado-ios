@@ -5,6 +5,8 @@ public enum ContentCatalogValidationError: Error, Equatable, LocalizedError, Sen
     case duplicateID(String)
     case blankMessage(String)
     case inconsistentStage(String)
+    case unexpectedTaskType(String, expected: TaskType, actual: TaskType)
+    case missingUrgencyStage(UrgencyStage)
 
     public var errorDescription: String? {
         switch self {
@@ -16,14 +18,23 @@ public enum ContentCatalogValidationError: Error, Equatable, LocalizedError, Sen
             return "Hydration content \(id) has an empty title or message."
         case .inconsistentStage(let id):
             return "Hydration content \(id) does not include its own urgency stage in its context."
+        case .unexpectedTaskType(let id, let expected, let actual):
+            return "Content \(id) is for \(actual.rawValue), but this catalog expects \(expected.rawValue)."
+        case .missingUrgencyStage(let stage):
+            return "The content catalog has no message for urgency stage \(stage.rawValue)."
         }
     }
 }
 
 public enum ContentCatalogValidator {
-    public static func validate(_ items: [ContentItem]) throws {
+    public static func validate(
+        _ items: [ContentItem],
+        expectedTaskType: TaskType? = nil,
+        requiredUrgencyStages: Set<UrgencyStage> = []
+    ) throws {
         guard !items.isEmpty else { throw ContentCatalogValidationError.empty }
         var ids = Set<String>()
+        var representedStages = Set<UrgencyStage>()
         for item in items {
             guard ids.insert(item.id).inserted else {
                 throw ContentCatalogValidationError.duplicateID(item.id)
@@ -35,6 +46,21 @@ public enum ContentCatalogValidator {
             guard item.context.urgencies.contains(item.stage) else {
                 throw ContentCatalogValidationError.inconsistentStage(item.id)
             }
+            if let expectedTaskType, item.taskType != expectedTaskType {
+                throw ContentCatalogValidationError.unexpectedTaskType(
+                    item.id,
+                    expected: expectedTaskType,
+                    actual: item.taskType
+                )
+            }
+            representedStages.insert(item.stage)
+        }
+
+        if let missingStage = requiredUrgencyStages
+            .subtracting(representedStages)
+            .sorted(by: { $0.rawValue < $1.rawValue })
+            .first {
+            throw ContentCatalogValidationError.missingUrgencyStage(missingStage)
         }
     }
 }

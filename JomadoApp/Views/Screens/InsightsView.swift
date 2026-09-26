@@ -9,10 +9,11 @@ struct InsightsView: View {
                 let s = runtime.summary()
                 VStack(spacing: 16) {
                     metric("Completion", percent(s.completionRate), "checkmark.seal.fill")
-                    HStack { metric("Completed", "\(s.completed)", "checkmark.circle.fill"); metric("Missed", "\(s.expired)", "clock.badge.xmark.fill") }
+                    HStack { metric("Completed", "\(s.completed)", "checkmark.circle.fill"); metric("Open", "\(s.open)", "circle.dashed") }
+                    HStack { metric("Skipped", "\(s.skipped)", "forward.fill"); metric("Missed", "\(s.expired)", "clock.badge.xmark.fill") }
                     HStack { metric("≤ 2 min", percent(s.within2Minutes), "bolt.fill"); metric("≤ 5 min", percent(s.within5Minutes), "timer") }
                     HStack { metric("≤ 15 min", percent(s.within15Minutes), "clock"); metric("Median", latency(s.medianLatency), "chart.line.uptrend.xyaxis") }
-                    Text("Timing percentages use all presented reminders as the denominator. Developer simulations are excluded.")
+                    Text("Completion uses resolved reminders only. Open, silenced, dismissed, or snoozed reminders never count as completed. Timing percentages use all presented reminders. Developer simulations are excluded.")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                     VStack(alignment: .leading, spacing: 12) {

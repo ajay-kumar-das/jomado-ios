@@ -12,6 +12,7 @@ final class HydrationScheduleEntity {
     var intervalMinutes: Int?
     var weekdaysCSV: String
     var enabled: Bool
+    var deliveryModeRaw: String?
     @Attribute(.unique) var alarmID: UUID
     var createdAt: Date
     var updatedAt: Date?
@@ -25,13 +26,14 @@ final class HydrationScheduleEntity {
         endMinute: Int,
         intervalMinutes: Int,
         weekdays: [Int],
+        deliveryMode: ReminderDeliveryMode = .companion,
         enabled: Bool = true,
         alarmID: UUID = UUID()
     ) {
         self.id = id; self.hour = startHour; self.minute = startMinute
         self.endHour = endHour; self.endMinute = endMinute; self.intervalMinutes = intervalMinutes
         self.weekdaysCSV = weekdays.map(String.init).joined(separator: ",")
-        self.enabled = enabled; self.alarmID = alarmID; self.createdAt = Date(); self.updatedAt = Date()
+        self.enabled = enabled; self.deliveryModeRaw = deliveryMode.rawValue; self.alarmID = alarmID; self.createdAt = Date(); self.updatedAt = Date()
     }
 
     var weekdays: [Int] {
@@ -44,6 +46,11 @@ final class HydrationScheduleEntity {
     var resolvedEndMinute: Int { endMinute ?? minute }
     var endMinuteOfDay: Int { resolvedEndHour * 60 + resolvedEndMinute }
     var resolvedIntervalMinutes: Int { intervalMinutes ?? 60 }
+
+    var deliveryMode: ReminderDeliveryMode {
+        get { ReminderDeliveryMode(rawValue: deliveryModeRaw ?? "") ?? .alarm }
+        set { deliveryModeRaw = newValue.rawValue }
+    }
 
     var configuration: HydrationRoutineConfiguration {
         .init(
@@ -73,7 +80,8 @@ final class HydrationScheduleEntity {
         endHour: Int,
         endMinute: Int,
         intervalMinutes: Int,
-        weekdays: [Int]
+        weekdays: [Int],
+        deliveryMode: ReminderDeliveryMode
     ) {
         hour = startHour
         minute = startMinute
@@ -81,6 +89,7 @@ final class HydrationScheduleEntity {
         self.endMinute = endMinute
         self.intervalMinutes = intervalMinutes
         self.weekdays = weekdays
+        self.deliveryMode = deliveryMode
         updatedAt = Date()
     }
 

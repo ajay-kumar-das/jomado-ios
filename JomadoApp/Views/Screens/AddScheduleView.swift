@@ -1,8 +1,10 @@
 import SwiftUI
+import UIKit
 import JomadoCore
 
 struct AddScheduleView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.openURL) private var openURL
     @ObservedObject var runtime: JomadoRuntime
     let routine: HydrationScheduleEntity?
 
@@ -10,9 +12,9 @@ struct AddScheduleView: View {
     @State private var endTime: Date
     @State private var intervalMinutes: Int
     @State private var weekdays: Set<Int>
+    @State private var deliveryMode: ReminderDeliveryMode
     @State private var saving = false
 
-    private let intervalOptions = [30, 45, 60, 90, 120, 180]
 
     init(runtime: JomadoRuntime, routine: HydrationScheduleEntity? = nil) {
         self.runtime = runtime
@@ -27,6 +29,7 @@ struct AddScheduleView: View {
         ))
         _intervalMinutes = State(initialValue: routine?.resolvedIntervalMinutes ?? 60)
         _weekdays = State(initialValue: Set(routine?.weekdays ?? Array(1...7)))
+        _deliveryMode = State(initialValue: routine?.deliveryMode ?? .companion)
     }
 
     var body: some View {
@@ -41,13 +44,57 @@ struct AddScheduleView: View {
                     Text("Times stay aligned to local wall-clock time when you travel or daylight saving time changes.")
                 }
 
-                Section("Cadence") {
-                    Picker("Remind me", selection: $intervalMinutes) {
-                        ForEach(intervalOptions, id: \.self) { minutes in
-                            Text(intervalLabel(minutes)).tag(minutes)
+                Section {
+                    Picker("Delivery", selection: $deliveryMode) {
+                        ForEach(ReminderDeliveryMode.allCases, id: \.self) { mode in
+                            Label(
+                                mode.title,
+                                systemImage: mode == .companion ? "message.badge.waveform.fill" : "alarm.fill"
+                            )
+                            .tag(mode)
                         }
                     }
-                    LabeledContent("Generated alarms", value: "\(configuration.alarmCount)")
+                } header: {
+                    Text("Reminder style")
+                } footer: {
+                    Text(deliveryMode == .companion
+                        ? "Companion uses Lock Screen notifications and the Jomado Live Activity. Dismissing it never completes the task."
+                        : "Alarm uses AlarmKit for a prominent system alarm. Silencing still never completes the task.")
+                }
+
+                Section {
+                    HStack {
+                        Label(deliveryPermissionTitle, systemImage: deliveryPermissionIcon)
+                        Spacer()
+                        Text(deliveryPermissionState).foregroundStyle(deliveryPermissionColor)
+                    }
+                    if deliveryNeedsPermissionAction {
+                        Button(deliveryPermissionActionTitle) { handlePermissionAction() }
+                    }
+                } header: {
+                    Text("Delivery readiness")
+                } footer: {
+                    Text(deliveryPermissionDetail)
+                }
+
+                Section {
+                    Stepper(
+                        value: $intervalMinutes,
+                        in: HydrationRoutineConfiguration.minimumIntervalMinutes...HydrationRoutineConfiguration.maximumIntervalMinutes,
+                        step: 15
+                    ) {
+                        LabeledContent("Remind me", value: intervalLabel(intervalMinutes))
+                    }
+                    .accessibilityValue(intervalLabel(intervalMinutes))
+
+                    LabeledContent(
+                        deliveryMode == .companion ? "Generated reminders" : "Generated alarms",
+                        value: "\(configuration.alarmCount)"
+                    )
+                } header: {
+                    Text("Cadence")
+                } footer: {
+                    Text("Choose any 15-minute increment from 15 minutes to 6 hours. The preview below shows every generated time before you save.")
                 }
 
                 Section("Repeat") {
@@ -74,9 +121,11 @@ struct AddScheduleView: View {
                             LabeledContent(alarmTimeText(minuteOfDay), value: daySummary)
                         }
                     } header: {
-                        Text("Alarm preview")
+                        Text(deliveryMode == .companion ? "Reminder preview" : "Alarm preview")
                     } footer: {
-                        Text("\(configuration.alarmCount) recurring system alarm\(configuration.alarmCount == 1 ? "" : "s") will be kept in sync with this routine.")
+                        Text(deliveryMode == .companion
+                            ? "\(configuration.alarmCount) companion reminder\(configuration.alarmCount == 1 ? "" : "s") will be generated for the selected days."
+                            : "\(configuration.alarmCount) recurring system alarm\(configuration.alarmCount == 1 ? "" : "s") will be kept in sync with this routine.")
                     }
                 }
 
@@ -89,7 +138,7 @@ struct AddScheduleView: View {
 
                 Section {
                     Label {
-                        Text("Silencing a system alarm acknowledges the interruption only. You must still tap **I drank water** in Jomado to complete the task.")
+                        Text("Dismiss, silence, or close only acknowledges the reminder surface. You must still tap **I drank water** in Jomado to complete the task.")
                     } icon: {
                         Image(systemName: "checkmark.circle.badge.xmark")
                             .foregroundStyle(.cyan)
@@ -127,6 +176,44 @@ struct AddScheduleView: View {
             return nil
         } catch {
             return error.localizedDescription
+        }
+    }
+
+    private var deliveryPermissionTitle: String { deliveryMode == .companion ? "Companion notifications" : "Alarm access" }
+    private var deliveryPermissionState: String { deliveryMode == .companion ? runtime.companionDiagnostics.authorization.title : runtime.alarmDiagnostics.authorization.title }
+    private var deliveryPermissionIcon: String { deliveryMode == .companion ? runtime.companionDiagnostics.authorization.systemImage : runtime.alarmDiagnostics.authorization.systemImage }
+    private var deliveryPermissionColor: Color {
+        let denied = deliveryMode == .companion ? runtime.companionDiagnostics.authorization == .denied : runtime.alarmDiagnostics.authorization == .denied
+        let authorized = deliveryMode == .companion ? runtime.companionDiagnostics.authorization == .authorized : runtime.alarmDiagnostics.authorization == .authorized
+        return denied ? .red : (authorized ? .green : .secondary)
+    }
+    private var deliveryNeedsPermissionAction: Bool { deliveryMode == .companion ? runtime.companionDiagnostics.authorization != .authorized : runtime.alarmDiagnostics.authorization != .authorized }
+    private var deliveryPermissionActionTitle: String {
+        let denied = deliveryMode == .companion ? runtime.companionDiagnostics.authorization == .denied : runtime.alarmDiagnostics.authorization == .denied
+        return denied ? "Open iOS Settings" : "Allow access"
+    }
+    private var deliveryPermissionDetail: String {
+        if deliveryMode == .companion {
+            switch runtime.companionDiagnostics.authorization {
+            case .authorized: return "Ready. iOS can deliver companion reminders while Jomado is closed."
+            case .notDetermined: return "Notification permission is required for reminders to appear while Jomado is closed. You can grant it now or when saving."
+            case .denied: return "Notifications are blocked in iOS Settings. The routine can be saved, but companion reminders will not appear until access is restored."
+            }
+        }
+        switch runtime.alarmDiagnostics.authorization {
+        case .authorized: return "Ready. AlarmKit can deliver prominent system alarms for this routine."
+        case .notDetermined: return "Alarm permission is required before generated alarms can ring."
+        case .denied: return "Alarm access is blocked in iOS Settings. The routine can be saved, but its generated alarms cannot ring until access is restored."
+        }
+    }
+    private func handlePermissionAction() {
+        let denied = deliveryMode == .companion ? runtime.companionDiagnostics.authorization == .denied : runtime.alarmDiagnostics.authorization == .denied
+        if denied {
+            guard let url = URL(string: UIApplication.openSettingsURLString) else { return }; openURL(url); return
+        }
+        Task {
+            if deliveryMode == .companion { _ = await runtime.requestCompanionAuthorization() }
+            else { _ = await runtime.requestAlarmAuthorization() }
         }
     }
 
@@ -182,7 +269,8 @@ struct AddScheduleView: View {
                 endHour: end.hour ?? 20,
                 endMinute: end.minute ?? 0,
                 intervalMinutes: intervalMinutes,
-                weekdays: weekdays.sorted()
+                weekdays: weekdays.sorted(),
+                deliveryMode: deliveryMode
             )
             saving = false
             if saved { dismiss() }

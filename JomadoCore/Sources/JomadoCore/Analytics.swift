@@ -16,9 +16,12 @@ public struct BehaviorEvent: Codable, Hashable, Sendable {
 
 public struct BehaviorSummary: Sendable {
     public let total: Int
+    public let resolved: Int
+    public let open: Int
     public let completed: Int
     public let skipped: Int
     public let expired: Int
+    /// Completion among terminal outcomes only. Open reminders must never depress or inflate this rate.
     public let completionRate: Double
     public let within2Minutes: Double
     public let within5Minutes: Double
@@ -44,6 +47,9 @@ public enum BehaviorAnalytics {
         let completed = completedEvents.count
         let skipped = events.filter { $0.skippedAt != nil }.count
         let expired = events.filter { $0.expiredAt != nil }.count
-        return BehaviorSummary(total: events.count, completed: completed, skipped: skipped, expired: expired, completionRate: events.isEmpty ? 0 : Double(completed) / Double(events.count), within2Minutes: fraction(within: 120), within5Minutes: fraction(within: 300), within15Minutes: fraction(within: 900), medianLatency: median)
+        let resolved = events.filter { $0.completedAt != nil || $0.skippedAt != nil || $0.expiredAt != nil }.count
+        let open = max(0, events.count - resolved)
+        let completionRate = resolved == 0 ? 0 : Double(completed) / Double(resolved)
+        return BehaviorSummary(total: events.count, resolved: resolved, open: open, completed: completed, skipped: skipped, expired: expired, completionRate: completionRate, within2Minutes: fraction(within: 120), within5Minutes: fraction(within: 300), within15Minutes: fraction(within: 900), medianLatency: median)
     }
 }
