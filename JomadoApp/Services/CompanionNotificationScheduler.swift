@@ -284,23 +284,14 @@ final class CompanionNotificationScheduler {
     }
 
     private func notificationSettings() async -> UNNotificationSettings {
-        await withCheckedContinuation { continuation in
-            center.getNotificationSettings { continuation.resume(returning: $0) }
-        }
+        await center.notificationSettings()
     }
 
     private func pendingRequests() async -> [UNNotificationRequest] {
-        await withCheckedContinuation { continuation in
-            center.getPendingNotificationRequests { continuation.resume(returning: $0) }
-        }
+        await center.pendingNotificationRequests()
     }
 
     private func add(_ request: UNNotificationRequest) async throws {
-        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-            center.add(request) { error in
-                if let error { continuation.resume(throwing: error) }
-                else { continuation.resume(returning: ()) }
-            }
-        }
+        try await center.add(request)
     }
 }

@@ -73,9 +73,15 @@ final class CompanionActivityCoordinator {
             staleDate: reminder.scheduledAt.addingTimeInterval(30 * 60)
         )
 
-        if let existing = Activity<CompanionActivityAttributes>.activities.first(where: {
+        if let matchedActivity = Activity<CompanionActivityAttributes>.activities.first(where: {
             $0.attributes.occurrenceID == reminder.id
         }) {
+            // Xcode 26.4+ imports Activity.update/end as @concurrent while Activity
+            // itself is not Sendable. A MainActor-local Activity therefore triggers
+            // a false-positive "sending ... risks causing data races" diagnostic.
+            // Keep the escape hatch local: Jomado does not retain or touch this
+            // Activity concurrently; it is used for this one awaited system call.
+            nonisolated(unsafe) let existing = matchedActivity
             await existing.update(content)
             return
         }
@@ -96,9 +102,13 @@ final class CompanionActivityCoordinator {
     }
 
     func end(_ reminder: ActiveReminder, completed: Bool) async {
-        guard let activity = Activity<CompanionActivityAttributes>.activities.first(where: {
+        guard let matchedActivity = Activity<CompanionActivityAttributes>.activities.first(where: {
             $0.attributes.occurrenceID == reminder.id
         }) else { return }
+
+        // Same Xcode 26.4+ ActivityKit concurrency import issue as update(_:) above.
+        // This binding is intentionally scoped to the single awaited end operation.
+        nonisolated(unsafe) let activity = matchedActivity
 
         let finalState = CompanionActivityAttributes.ContentState(
             title: completed ? "Nice work" : "Reminder closed",
