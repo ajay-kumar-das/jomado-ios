@@ -1,5 +1,7 @@
 import SwiftUI
 import SwiftData
+import Combine
+import UIKit
 
 struct RootView: View {
     @Environment(\.modelContext) private var modelContext
@@ -23,6 +25,15 @@ struct RootView: View {
             if phase == .active {
                 Task { await runtime.refreshSystemState() }
             }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in
+            Task { await runtime.refreshSystemState() }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.NSSystemTimeZoneDidChange)) { _ in
+            Task { await runtime.refreshSystemState() }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
+            Task { await runtime.refreshSystemState() }
         }
         .fullScreenCover(item: $runtime.activeReminder) { _ in ReminderExperienceView(runtime: runtime) }
         .alert("Jomado", isPresented: Binding(get: { runtime.lastError != nil }, set: { if !$0 { runtime.lastError = nil } })) { Button("OK", role: .cancel) {} } message: { Text(runtime.lastError ?? "") }

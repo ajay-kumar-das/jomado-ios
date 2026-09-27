@@ -36,9 +36,10 @@ struct SettingsView: View {
                             Task { await runtime.requestCompanionAuthorization() }
                         }
                     }
-                    Button("Refresh companion reminders") {
+                    Button(runtime.isReconcilingCompanionNotifications ? "Refreshing…" : "Refresh companion reminders") {
                         Task { await runtime.reconcileCompanionNotifications() }
                     }
+                    .disabled(runtime.isReconcilingCompanionNotifications)
                 } header: {
                     Text("Companion reminders")
                 } footer: {
@@ -136,15 +137,24 @@ struct SettingsView: View {
                 }
 
                 Section("Build") {
+#if DEBUG
                     NavigationLink("Developer tools") {
                         DeveloperView(runtime: runtime)
                     }
-                    LabeledContent("Version", value: "0.3")
+#endif
+                    LabeledContent("Version", value: appVersion)
                 }
             }
             .navigationTitle("Settings")
             .refreshable { await runtime.refreshSystemState() }
         }
+    }
+
+
+    private var appVersion: String {
+        let short = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "—"
+        let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "—"
+        return "\(short) (\(build))"
     }
 
     private var remoteRegistrationLabel: String {

@@ -45,6 +45,7 @@ final class JomadoRuntime: ObservableObject {
     @Published private(set) var companionActivityDiagnostics = CompanionActivityDiagnostics()
     @Published private(set) var companionPushRegistrationDiagnostics = CompanionPushRegistrationDiagnostics()
     @Published private(set) var isReconcilingAlarms = false
+    @Published private(set) var isReconcilingCompanionNotifications = false
     @Published var lastError: String?
 
     let alarmScheduler = AlarmScheduler()
@@ -55,6 +56,10 @@ final class JomadoRuntime: ObservableObject {
     private let engine = ContentEngine(explorationRate: 0.12)
     private let staleReminderInterval: TimeInterval = 12 * 60 * 60
     private var modelContext: ModelContext?
+    private var alarmReconcileRequested = false
+    private var companionReconcileRequested = false
+    private var alarmReconcileTask: Task<Void, Never>?
+    private var companionReconcileTask: Task<Void, Never>?
 
     init() {
         contentCount = contentRepository.items.count
@@ -209,9 +214,33 @@ final class JomadoRuntime: ObservableObject {
     }
 
     func reconcileAlarms() async {
-        guard let context = modelContext, !isReconcilingAlarms else { return }
+        alarmReconcileRequested = true
+
+        // MainActor is re-entrant across awaits. A save, permission change, foreground
+        // transition, or clock change can therefore request another reconciliation while
+        // AlarmKit work is still in flight. Join the current task and ask it to make one
+        // final pass with the newest persisted routine state instead of dropping the request.
+        if let task = alarmReconcileTask {
+            await task.value
+            return
+        }
+
         isReconcilingAlarms = true
-        defer { isReconcilingAlarms = false }
+        let task = Task { @MainActor [weak self] in
+            guard let self else { return }
+            repeat {
+                self.alarmReconcileRequested = false
+                await self.performAlarmReconciliation()
+            } while self.alarmReconcileRequested
+            self.isReconcilingAlarms = false
+            self.alarmReconcileTask = nil
+        }
+        alarmReconcileTask = task
+        await task.value
+    }
+
+    private func performAlarmReconciliation() async {
+        guard let context = modelContext else { return }
 
         let authorization = alarmScheduler.authorizationStatus
         alarmDiagnostics.authorization = authorization
@@ -421,6 +450,31 @@ final class JomadoRuntime: ObservableObject {
     }
 
     func reconcileCompanionNotifications() async {
+        companionReconcileRequested = true
+
+        // Notification-center calls suspend, so a second refresh can otherwise interleave
+        // with remove/add work and churn the pending schedule. Coalesce callers and rerun
+        // once with the latest routine state before considering reconciliation complete.
+        if let task = companionReconcileTask {
+            await task.value
+            return
+        }
+
+        isReconcilingCompanionNotifications = true
+        let task = Task { @MainActor [weak self] in
+            guard let self else { return }
+            repeat {
+                self.companionReconcileRequested = false
+                await self.performCompanionNotificationReconciliation()
+            } while self.companionReconcileRequested
+            self.isReconcilingCompanionNotifications = false
+            self.companionReconcileTask = nil
+        }
+        companionReconcileTask = task
+        await task.value
+    }
+
+    private func performCompanionNotificationReconciliation() async {
         guard let context = modelContext else { return }
         let routines = (try? context.fetch(
             FetchDescriptor<HydrationScheduleEntity>(sortBy: [SortDescriptor(\.createdAt)])

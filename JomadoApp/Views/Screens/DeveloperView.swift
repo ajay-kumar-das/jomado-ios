@@ -1,3 +1,4 @@
+#if DEBUG
 import SwiftUI
 import JomadoCore
 
@@ -18,3 +19,4 @@ struct DeveloperView: View {
         }.navigationTitle("Developer tools")
     }
 }
+#endif
